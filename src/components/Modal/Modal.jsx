@@ -7,14 +7,16 @@ const Modal = ({ children, close }) => {
     //componentDidMount + componentWillUnmount маємо передавати обов'язково
     // return + callback функцію
     useEffect(() => {
-            const handlePressESC = (e) => {
+        const handlePressESC = (e) => {
         console.log('press')
         if (e.code === 'Escape') close()
     }
         document.addEventListener('keydown', handlePressESC);
+
         return () => {
             console.log("Unmount");
-        document.removeEventListener('keydown', handlePressESC);}
+            document.removeEventListener('keydown', handlePressESC);
+        }
     }, [close])
 
     //componentWillUnmount

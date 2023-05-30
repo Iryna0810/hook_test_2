@@ -1,11 +1,13 @@
-import { useState } from "react";
+// import { useState } from "react";
 import React from 'react'
 import Modal from './Modal/Modal'
 import Header from './Header/Header'
 import FormLogin from "./FormLogin/FormLogin";
 import Search from "./Search/Search";
-import { Route, Routes } from 'react-router-dom'
-import { useEffect } from "react";
+// import { Route, Routes } from 'react-router-dom'
+import { useEffect, forwardRef, useState, useRef } from "react";
+import { Player } from "./Player/Player";
+import Counter from './Counter/Counter';
 
 
 export const App = () => {
@@ -56,6 +58,13 @@ export const App = () => {
     setSearchText(searchText);
   }
 
+  const CustomButton = forwardRef((props, ref) => (
+  <button ref={ref}>{props.children}</button>
+  ));
+  const btnRef = useRef();
+
+  // useEffect(() => btnRef.current.focus(), []);
+
   return (
     <div
       style={{
@@ -77,8 +86,11 @@ export const App = () => {
             close={closeModal}
             createUser={createUser}
           />
-        </Modal>
+        </Modal>  
       )}
+      {/* <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4"></Player>
+      <CustomButton ref={btnRef}>Button with forwarded ref</CustomButton> */}
+      <Counter></Counter>
     </div>
   )
 }
