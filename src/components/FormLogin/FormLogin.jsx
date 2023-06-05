@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const { Component } = require("react");
+// const { Component } = require("react");
 
 const FormLogin = ({createUser,close}) => {
     const [email, setEmail] = useState('');

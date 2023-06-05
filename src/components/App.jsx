@@ -1,13 +1,19 @@
 // import { useState } from "react";
-import React from 'react'
+import React, { createContext } from 'react'
 import Modal from './Modal/Modal'
 import Header from './Header/Header'
 import FormLogin from "./FormLogin/FormLogin";
 import Search from "./Search/Search";
 // import { Route, Routes } from 'react-router-dom'
-import { useEffect, forwardRef, useState, useRef } from "react";
-import { Player } from "./Player/Player";
+// eslint-disable-next-line no-unused-vars
+import { useEffect, forwardRef, useState } from "react";
+// import { Player } from "./Player/Player";
+// eslint-disable-next-line no-unused-vars
 import Counter from './Counter/Counter';
+import Main from './Main/Main';
+import Alert from './Alert/Alert'
+import Context from './Context/Context';
+
 
 
 export const App = () => {
@@ -20,8 +26,8 @@ export const App = () => {
   const [isShowModal, setIsShowModal] = useState(false);
   // console.log(isShowModal);
 
+  // eslint-disable-next-line no-unused-vars
   const [searchText, setSearchText] = useState('');
-  // console.log(searchText);
 
   useEffect(() => {
     console.log('Effect')
@@ -58,12 +64,15 @@ export const App = () => {
     setSearchText(searchText);
   }
 
-  const CustomButton = forwardRef((props, ref) => (
-  <button ref={ref}>{props.children}</button>
-  ));
-  const btnRef = useRef();
+  // const CustomButton = forwardRef((props, ref) => (
+  // <button ref={ref}>{props.children}</button>
+  // ));
+  // const btnRef = useRef();
 
   // useEffect(() => btnRef.current.focus(), []);
+
+
+
 
   return (
     <div
@@ -90,7 +99,13 @@ export const App = () => {
       )}
       {/* <Player source="http://media.w3.org/2010/05/sintel/trailer.mp4"></Player>
       <CustomButton ref={btnRef}>Button with forwarded ref</CustomButton> */}
-      <Counter></Counter>
+      {/* <Counter></Counter> */}
+      <div className='container pt-2'>
+        <Context>
+          <Alert />
+          <Main />
+        </Context>
+        </div>
     </div>
   )
 }

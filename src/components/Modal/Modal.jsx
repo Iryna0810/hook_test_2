@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+// eslint-disable-next-line no-unused-vars
 import { Component } from "react";
 
 const Modal = ({ children, close }) => {
